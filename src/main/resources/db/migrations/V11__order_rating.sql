@@ -1,0 +1,12 @@
+CREATE TABLE order_rating (
+    id SERIAL PRIMARY KEY,
+    order_id INTEGER NOT NULL,
+    rating DOUBLE PRECISION NOT NULL,
+    review TEXT,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_order
+        FOREIGN KEY(order_id)
+        REFERENCES orders(id)
+        ON DELETE CASCADE
+);

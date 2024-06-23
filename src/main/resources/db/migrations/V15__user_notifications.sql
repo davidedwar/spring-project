@@ -1,0 +1,10 @@
+CREATE TABLE user_notifications (
+    id SERIAL PRIMARY KEY,
+    recipient_id INTEGER NOT NULL,
+    recipient_type VARCHAR(10) CHECK (recipient_type IN ('CHEF', 'CLIENT')),
+    content TEXT NOT NULL,
+    seen BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    seen_at TIMESTAMP WITHOUT TIME ZONE
+);
